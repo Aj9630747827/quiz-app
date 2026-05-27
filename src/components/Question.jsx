@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ScoreContext } from "../store/ScoreContextProvider";
 
-function Question({ questionList, index, score, setScore }) {
+function Question({ questionList, index }) {
   const [selectedOption, setSelectedOption] = useState(null);
+  const { score, setScore } = useContext(ScoreContext);
 
   const currentQuestion = questionList[index];
 

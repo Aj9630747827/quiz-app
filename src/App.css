@@ -158,3 +158,88 @@ body{
 .option-btn:hover {
   transform: scale(1.03);
 }
+.custom-scorepage{
+   position: relative;
+  display: flex;
+  min-height: 50vh;
+  background-color: #212529;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 4px;
+  margin-top: 8rem;
+}
+/* ROTATING GREEN BORDER */
+.custom-scorepage::before {
+  content: "";
+  position: absolute;
+  width: 250%;
+  height: 250%;
+  background: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+#39ff14  );
+
+  animation: rotateBorder 4s linear infinite;
+
+  top: -75%;
+  left: -75%;
+}
+
+
+/* INNER CONTENT */
+.custom-scorepage::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background: #212529;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+
+/* KEEP CONTENT ABOVE ANIMATION */
+.custom-scorepage > * {
+  position: relative;
+  z-index: 2;
+}
+/* ROTATION ANIMATION */
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.retake-btn{
+  transition: all 0.3s ease;
+  animation: jump 2s ease-in-out infinite;
+}
+/* Jump Animation */
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+  }
+
+  20% {
+    transform: translateY(-8px);
+  }
+
+  40% {
+    transform: translateY(0px);
+  }
+
+  60% {
+    transform: translateY(-4px);
+  }
+
+  80% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}

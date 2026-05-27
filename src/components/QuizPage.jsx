@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Question from "./Question";
+import { ScoreContext } from "../store/ScoreContextProvider";
+import { PageContext } from "../store/PageContextProvider";
 
 function QuizPage() {
+  const { page, setPage } = useContext(PageContext);
   const questionList = [
     {
       question: "What is the capital city of Australia?",
@@ -80,7 +83,8 @@ function QuizPage() {
     },
   ];
   const [index, setIndex] = useState(0);
-  const [score, setScore] = useState(0);
+  const { score, setScore } = useContext(ScoreContext);
+  // const [score, setScore] = useState(0);
   function handleNext() {
     if (index > 9) return;
     setIndex(index + 1);
@@ -89,6 +93,10 @@ function QuizPage() {
   //   if (index < 1) return;
   //   setIndex(index - 1);
   // }
+  function handleSubmit() {
+    setPage("Score");
+    setIndex(0);
+  }
   return (
     <>
       <h1 className="display-4 fw-bold text-light mb-4 d-flex justify-content-center">
@@ -99,20 +107,28 @@ function QuizPage() {
           questionList={questionList}
           index={index}
           setIndex={setIndex}
-          score={score}
-          setScore={setScore}
         />
       </div>
       <div className="container text-center mt-5">
         <div className="row">
           <div className="col">
-            <button
-              type="button"
-              className={`btn btn-primary btn-lg w-100 ${index === 9 ? "disabled" : ""}`}
-              onClick={handleNext}
-            >
-              NEXT
-            </button>
+            {index < 9 ? (
+              <button
+                type="button"
+                className={`btn btn-primary btn-lg w-100 ${index === 9 ? "disabled" : ""}`}
+                onClick={handleNext}
+              >
+                NEXT
+              </button>
+            ) : (
+              <button
+                type="button"
+                className={"btn btn-success btn-lg w-100"}
+                onClick={handleSubmit}
+              >
+                Submit
+              </button>
+            )}
           </div>
 
           {/* <div className="col">
