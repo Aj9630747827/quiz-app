@@ -99,7 +99,7 @@ function QuizPage() {
   }
   return (
     <>
-      <h1 className="display-4 fw-bold text-light mb-4 d-flex justify-content-center">
+      <h1 className="display-4 fw-bold text-light mb-4 d-flex justify-content-center py-5">
         Score: {score}
       </h1>
       <div className="custom-quizpage">
