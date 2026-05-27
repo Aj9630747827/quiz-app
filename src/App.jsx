@@ -1,15 +1,17 @@
+import { useContext } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import PageContextProvider, { PageContext } from "./store/PageContextProvider";
+import MainPage from "./components/MainPage";
 
 function App() {
   return (
     <>
-      <Header />
-      <div>
-        {" "}
-        <Home />
-      </div>
+      <PageContextProvider>
+        <Header />
+        <MainPage />
+      </PageContextProvider>
     </>
   );
 }

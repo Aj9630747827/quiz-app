@@ -1,9 +1,10 @@
 body{
-  background-color: #0000001a;
+  background-color:#131313;
+  min-height: 100vh;
 }
 /* NAVBAR GREEN GLOW ANIMATION */
 .custom-navbar {
-  position: fixed;
+  position: relative;
   top: 0;
   width: 100%;
   background-color: #212529;
@@ -85,4 +86,75 @@ body{
     padding-top: 10rem !important;
   background-color: #212529;
   color: antiquewhite;
+}
+.custom-question{
+  background-color: #212529;
+  color: white;
+}
+/* QUIZ PAGE CONTAINER */
+.custom-quizpage {
+  position: relative;
+  display: flex;
+  min-height: 50vh;
+  background-color: #212529;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 4px;
+  margin-top: 8rem;
+}
+
+
+/* ROTATING GREEN BORDER */
+.custom-quizpage::before {
+  content: "";
+  position: absolute;
+  width: 250%;
+  height: 250%;
+  background: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+#39ff14  );
+
+  animation: rotateBorder 4s linear infinite;
+
+  top: -75%;
+  left: -75%;
+}
+
+
+/* INNER CONTENT */
+.custom-quizpage::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background: #212529;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+
+/* KEEP CONTENT ABOVE ANIMATION */
+.custom-quizpage > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* ROTATION ANIMATION */
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.option-btn {
+  transition: all 0.3s ease;
+}
+
+.option-btn:hover {
+  transform: scale(1.03);
 }
