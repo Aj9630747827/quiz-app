@@ -16,6 +16,7 @@ function Home() {
           alt="Logo"
           width="220"
           height="180"
+          onClick={() => setPage("Home")}
         />{" "}
         <h1 className="display-5 fw-bold text-color-light mb-4">
           {" "}
@@ -46,7 +47,7 @@ function Home() {
               className="btn btn-success btn-lg px-4 gap-3 custom-btn"
               onClick={handleSubmit}
             >
-              Start Quiz
+              Start Quiz 🚀
             </button>{" "}
           </div>{" "}
         </div>{" "}
