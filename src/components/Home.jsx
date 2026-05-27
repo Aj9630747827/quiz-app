@@ -1,23 +1,29 @@
+import { useContext } from "react";
 import logo from "../assets/logo.png";
+import { PageContext } from "../store/PageContextProvider";
 function Home() {
+  const { setPage } = useContext(PageContext);
+  function handleSubmit() {
+    setPage("Quiz");
+  }
   return (
     <>
-      <div class="px-4 text-center custom-hero">
+      <div className="px-4 text-center custom-hero">
         {" "}
         <img
-          class="d-block mx-auto mb-4"
+          className="d-block mx-auto mb-4"
           src={logo}
           alt="Logo"
           width="220"
           height="180"
         />{" "}
-        <h1 class="display-5 fw-bold text-color-light mb-4">
+        <h1 className="display-5 fw-bold text-color-light mb-4">
           {" "}
           General Knowledge Quiz Application
         </h1>{" "}
-        <div class="col-lg-6 mx-auto">
+        <div className="col-lg-6 mx-auto">
           {" "}
-          <p class="lead mb-4">
+          <p className="lead mb-4">
             Welcome to the General Knowledge Quiz Application — a fun,
             interactive, and educational platform designed to test and improve
             your knowledge across a wide variety of subjects. This quiz
@@ -33,11 +39,12 @@ function Home() {
             examinations, this quiz application provides an engaging environment
             where learning becomes enjoyable.
           </p>{" "}
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
             {" "}
             <button
               type="button"
-              class="btn btn-success btn-lg px-4 gap-3 custom-btn"
+              className="btn btn-success btn-lg px-4 gap-3 custom-btn"
+              onClick={handleSubmit}
             >
               Start Quiz
             </button>{" "}
